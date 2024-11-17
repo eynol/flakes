@@ -36,6 +36,7 @@
 
     # code editor
     vscode
+    thonny
 
     # archives
     zip

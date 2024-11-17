@@ -83,7 +83,7 @@ nix.settings.substituters = [ "https://mirrors.ustc.edu.cn/nix-channels/store" ]
   users.users.eynol = {
     isNormalUser = true;
     description = "eynol";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "dialout"];
     packages = with pkgs; [
     #  thunderbird
     ];
