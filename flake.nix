@@ -1,6 +1,11 @@
 {
   description = "a beginner's flakes config";
 
+inputs = {
+    # NixOS 官方软件源，这里使用 nixos-23.11 分支
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.05";
+  };
+
  # the nixConfig here only affects the flake itself, not the system configuration!
   nixConfig = {
     # override the default substituters
@@ -25,7 +30,7 @@
   # Work-in-progress: refer to parent/sibling flakes in the same repository
   # inputs.c-hello.url = "path:../c-hello";
 
-  outputs = { self, nixpkgs, ... }: {
+  outputs = inputs@{ self, nixpkgs, ... }: {
 
     # 因此请将下面的 my-nixos 替换成你的主机名称
     nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
