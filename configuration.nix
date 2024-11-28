@@ -44,6 +44,19 @@ nix.settings.substituters = [ "https://mirrors.ustc.edu.cn/nix-channels/store" ]
     LC_TIME = "zh_CN.UTF-8";
   };
 
+  i18n.inputMethod = {
+     enabled = "fcitx5";
+     fcitx5.waylandFrontend = true;
+     fcitx5.addons = with pkgs; [
+       rime-data
+       fcitx5-gtk
+       fcitx5-chinese-addons
+       fcitx5-configtool
+       fcitx5-lua
+       fcitx5-nord
+       fcitx5-rime
+     ];
+   };
   # Enable the X11 windowing system.
   services.xserver.enable = true;
 
@@ -51,15 +64,20 @@ nix.settings.substituters = [ "https://mirrors.ustc.edu.cn/nix-channels/store" ]
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.desktopManager.gnome.enable = true;
 
+
   # Configure keymap in X11
   services.xserver.xkb = {
     layout = "cn";
     variant = "";
   };
+  
+  services.xserver.displayManager.sessionCommands = "setxkbmap -option caps:escape";
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
+  # enable tailscale service
+  services.tailscale.enable = true;
   # Enable sound with pipewire.
   hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
