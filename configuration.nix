@@ -5,10 +5,10 @@
 { config, pkgs, ... }:
 
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-    ];
+  imports = [
+    # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+  ];
 
   # Bootloader.
   boot.loader.grub.enable = true;
@@ -21,7 +21,7 @@
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
-nix.settings.substituters = [ "https://mirrors.ustc.edu.cn/nix-channels/store" ];
+  nix.settings.substituters = [ "https://mirrors.ustc.edu.cn/nix-channels/store" ];
 
   # Enable networking
   networking.networkmanager.enable = true;
@@ -45,18 +45,18 @@ nix.settings.substituters = [ "https://mirrors.ustc.edu.cn/nix-channels/store" ]
   };
 
   i18n.inputMethod = {
-     enabled = "fcitx5";
-     fcitx5.waylandFrontend = true;
-     fcitx5.addons = with pkgs; [
-       rime-data
-       fcitx5-gtk
-       fcitx5-chinese-addons
-       fcitx5-configtool
-       fcitx5-lua
-       fcitx5-nord
-       fcitx5-rime
-     ];
-   };
+    enabled = "fcitx5";
+    fcitx5.waylandFrontend = true;
+    fcitx5.addons = with pkgs; [
+      rime-data
+      fcitx5-gtk
+      fcitx5-chinese-addons
+      fcitx5-configtool
+      fcitx5-lua
+      fcitx5-nord
+      fcitx5-rime
+    ];
+  };
   # Enable the X11 windowing system.
   services.xserver.enable = true;
 
@@ -64,13 +64,12 @@ nix.settings.substituters = [ "https://mirrors.ustc.edu.cn/nix-channels/store" ]
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.desktopManager.gnome.enable = true;
 
-
   # Configure keymap in X11
   services.xserver.xkb = {
     layout = "cn";
     variant = "";
   };
-  
+
   services.xserver.displayManager.sessionCommands = "setxkbmap -option caps:escape";
 
   # Enable CUPS to print documents.
@@ -101,9 +100,13 @@ nix.settings.substituters = [ "https://mirrors.ustc.edu.cn/nix-channels/store" ]
   users.users.eynol = {
     isNormalUser = true;
     description = "eynol";
-    extraGroups = [ "networkmanager" "wheel" "dialout"];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+      "dialout"
+    ];
     packages = with pkgs; [
-    #  thunderbird
+      #  thunderbird
     ];
   };
 
@@ -113,13 +116,16 @@ nix.settings.substituters = [ "https://mirrors.ustc.edu.cn/nix-channels/store" ]
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-  #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-  #  wget
+    #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+    #  wget
     nixfmt-rfc-style
     git
     wget
