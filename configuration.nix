@@ -120,6 +120,7 @@ nix.settings.substituters = [ "https://mirrors.ustc.edu.cn/nix-channels/store" ]
   environment.systemPackages = with pkgs; [
   #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
   #  wget
+    nixfmt-rfc-style
     git
     wget
     curl
