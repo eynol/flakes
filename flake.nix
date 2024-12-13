@@ -3,11 +3,11 @@
 
   inputs = {
     # NixOS 官方软件源，这里使用 nixos-23.11 分支
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.05";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.11";
 
     # home-manager, used for managing user configuration
     home-manager = {
-      url = "github:nix-community/home-manager/release-24.05";
+      url = "github:nix-community/home-manager/release-24.11";
       # The `follows` keyword in inputs is used for inheritance.
       # Here, `inputs.nixpkgs` of home-manager is kept consistent with
       # the `inputs.nixpkgs` of the current flake,
@@ -78,7 +78,7 @@
 
             # 使用 home-manager.extraSpecialArgs 自定义传递给 ./home.nix 的参数
             # 取消注释下面这一行，就可以在 home.nix 中使用 flake 的所有 inputs 参数了
-            # home-manager.extraSpecialArgs = inputs;
+            home-manager.extraSpecialArgs = inputs;
           }
         ];
       };
