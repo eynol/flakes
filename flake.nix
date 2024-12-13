@@ -43,6 +43,8 @@ inputs = {
 
   outputs = inputs@{ self, nixpkgs, home-manager, ... }: {
 
+    formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.nixfmt-rfc-style;
+
     # 因此请将下面的 my-nixos 替换成你的主机名称
     nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
