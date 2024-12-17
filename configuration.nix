@@ -102,6 +102,7 @@
     description = "eynol";
     extraGroups = [
       "networkmanager"
+      "docker"
       "wheel"
       "dialout"
     ];
@@ -126,6 +127,7 @@
   environment.systemPackages = with pkgs; [
     #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     #  wget
+    docker
     nixfmt-rfc-style
     git
     wget
@@ -133,6 +135,7 @@
     neovim
   ];
 
+  virtualisation.docker.enable = true;
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
