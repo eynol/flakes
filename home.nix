@@ -71,7 +71,7 @@
     gawk
     zstd
     gnupg
-    
+
     kitty
 
     # nix related
@@ -99,6 +99,9 @@
     ethtool
     pciutils # lspci
     usbutils # lsusb
+
+    # gui tools
+    obsidian
   ];
 
   # git 相关配置
