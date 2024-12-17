@@ -71,6 +71,8 @@
     gawk
     zstd
     gnupg
+    
+    kitty
 
     # nix related
     #
