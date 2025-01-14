@@ -107,7 +107,7 @@
     # tui
     lazydocker
     # font
-    vistafonts-chs
+    # vistafonts-chs
     liberation_ttf
     aileron
     fragment-mono
