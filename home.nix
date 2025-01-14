@@ -102,6 +102,16 @@
 
     # gui tools
     obsidian
+    microsoft-edge
+
+    # tui
+    lazydocker
+    # font
+    vista-fonts-chs
+    liberation_ttf
+    aileron
+    fragment-mono
+
   ];
 
   # git 相关配置
