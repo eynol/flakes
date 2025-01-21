@@ -93,6 +93,8 @@
     #media-session.enable = true;
   };
 
+  services.v2raya.enable = true;
+  services.v2ray.enable = true;
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 
@@ -112,6 +114,14 @@
     ];
   };
 
+ programs.zsh = {
+    enable = true;
+    enableCompletion = true;
+    enableBashCompletion = true;
+    autosuggestions = {
+      enable =  true;
+    };
+  };
   # Install firefox.
   programs.firefox.enable = true;
 
@@ -135,6 +145,10 @@
     wget
     curl
     neovim
+    zsh
+    oh-my-zsh
+    v2ray
+    v2raya
   ];
 
   virtualisation.docker.enable = true;

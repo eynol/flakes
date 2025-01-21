@@ -73,7 +73,7 @@
     gawk
     zstd
     gnupg
-    gnome-tweak
+    gnome-tweaks
     kitty
 
     # nix related
@@ -116,12 +116,14 @@
 
   ];
 
-  programe.zsh = {
+  programs.zsh = {
     enable = true;
     enableCompletion = true;
-    enableBashCompletion = true;
-    autosuggestions.enable = true;
-  }
+    # enableBashCompletion = true;
+    # autosuggestions = {
+    #   enable =  true;
+    # };
+  };
 
   # git 相关配置
   programs.git = {
