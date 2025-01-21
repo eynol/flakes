@@ -58,7 +58,6 @@
         modules = [
           # 这里导入之前我们使用的 configuration.nix，
           # 这样旧的配置文件仍然能生效
-          ./hardware-configuration.nix
           ./configuration.nix
           {
             # given the users in this list the right to specify additional substituters via:

@@ -33,6 +33,8 @@
     # 如下是我常用的一些命令行工具，你可以根据自己的需要进行增删
     neofetch
     nnn # terminal file manager
+    zsh
+    oh-my-zsh
 
     # code editor
     vscode
@@ -71,7 +73,7 @@
     gawk
     zstd
     gnupg
-
+    gnome-tweak
     kitty
 
     # nix related
@@ -113,6 +115,13 @@
     fragment-mono
 
   ];
+
+  programe.zsh = {
+    enable = true;
+    enableCompletion = true;
+    enableBashCompletion = true;
+    autosuggestions.enable = true;
+  }
 
   # git 相关配置
   programs.git = {
